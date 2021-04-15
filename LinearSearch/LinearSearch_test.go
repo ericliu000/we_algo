@@ -6,10 +6,11 @@ import (
 )
 
 func TestLinear(t *testing.T) {
-	data := []int{24, 18, 12, 9, 16, 66, 32, 4}
+	arrayGenerator := NewArrayGenerator()
+	data := arrayGenerator.GenerateOrderedArray(10)
 
 	ls := NewLinearSearch()
-	res := ls.Search(data, 16)
+	res := ls.Search(data, 6)
 	fmt.Println(res)
 
 	res2 := ls.Search(data,666)
@@ -18,4 +19,15 @@ func TestLinear(t *testing.T) {
 	students := []Comparable{NewStudent("Alice"),NewStudent("Bobo"),NewStudent("Charles")}
 	res3 := ls.SearchWithEqual(students,NewStudent("Bobo"))
 	fmt.Println(res3)
+}
+
+func TestLinearSearchBenchMark(t *testing.T)  {
+	//直接看case运行时间即可
+	n := 100000000
+	arrayGenerator := NewArrayGenerator()
+	data := arrayGenerator.GenerateOrderedArray(n)
+	ls := NewLinearSearch()
+	for k:=0;k<100;k++ {
+		ls.Search(data, n)
+	}
 }
