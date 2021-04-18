@@ -17,6 +17,7 @@ class SelectSort
         /*以第一层遍历为标杆,第二层遍历重置到第一次遍历到的点,重新选择循环变量里的最小值得index*/
         for ($i = 0; $i < $length; $i++) {
             $minIndex = $i;
+            /*遍历的是未排好的数据*/
             for ($j = $i; $j < $length; $j++) {
                 if($this->sortArr[$j] < $this->sortArr[$minIndex]){
                     $minIndex = $j;
