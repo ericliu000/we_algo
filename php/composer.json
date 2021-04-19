@@ -1,0 +1,6 @@
+{
+    "name": "shawn/algo",
+    "description": "php学算法",
+    "type": "library",
+    "minimum-stability": "beta"
+}
