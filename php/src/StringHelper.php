@@ -1,7 +1,7 @@
 <?php
 
 
-namespace algo\sort;
+namespace algo\src;
 
 
 class StringHelper
@@ -20,3 +20,9 @@ class StringHelper
         return true;
     }
 }
+
+$arr = [2,3,4,5,6];
+var_dump(StringHelper::isSort($arr));
+
+$arr = [2,3,4,5,7,6];
+var_dump(StringHelper::isSort($arr));

@@ -18,6 +18,17 @@ function findIndexOfMinNum($arr, $start)
     return $iMin;
 }
 
+function findIndexOfMinNum2($arr, $end)
+{
+    $iMax = 0;
+    for ($i = 0; $i <= $end; $i++) {
+        if ($arr[$i] > $arr[$iMax]) {
+            $iMax = $i;
+        }
+    }
+    return $iMax;
+}
+
 function swap($arr, $x, $y)
 {
     if ($x == $y) {
@@ -34,6 +45,12 @@ for ($i = 0; $i < count($arr); $i++) {
     $iMin = findIndexOfMinNum($arr, $i);
     $arr = swap($arr, $iMin, $i);
 }
-
 print_r($arr);
 
+
+$arr2 = [6, 4, 2, 3, 1, 5];
+for ($i = count($arr2)-1; $i > 0; $i--) {
+    $iMax = findIndexOfMinNum2($arr2, $i);
+    $arr2 = swap($arr2, $iMax, $i);
+}
+print_r($arr2);
