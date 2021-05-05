@@ -11,35 +11,28 @@
  * Date: 2021/5/5
  * Time: 上午10:37
  */
-class MyStack
+class Queue2Stack
 {
-    public $queue1;
-    public $queue2;
-
+    public $queue;
 
     /*入栈*/
     public function push($val){
-        $this->queue2[] = $val;
+        $this->queue[] = $val;
     }
 
     /*出栈*/
     public function pop(){
-        if($this->queue1) return array_pop($this->queue1);
 
-        while($item = array_pop($this->queue2)){
-            $this->queue1[] = $item;
-        }
-
-        return array_pop($this->queue1);
+        return array_pop($this->queue);
     }
 
     /*查看栈顶部元素*/
     public function top(){
-        return end($this->queue1);
+        return end($this->queue);
     }
 
     /*检查栈为空*/
     public function isEmpty(){
-        return empty($this->queue1) && empty($this->queue2);
+        return empty($this->queue);
     }
 }
