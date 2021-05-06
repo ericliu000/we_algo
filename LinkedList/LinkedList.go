@@ -49,7 +49,10 @@ func (this *LinkedList) Add(e interface{}, index int) {
 		prev.next = node
 		this.size++
 	}
+}
 
+func (this *LinkedList) AddLast(e interface{}) {
+	this.Add(e,this.size)
 }
 
 func NewLinkedList() *LinkedList {
