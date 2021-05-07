@@ -13,7 +13,7 @@ class Node
 
     public function __toString()
     {
-        return $this->e->toString();
+        return (string)$this->e;
     }
 }
 
@@ -21,13 +21,24 @@ class Node
 class LinkedList
 {
     /** @var Node */
-    private $head;
+    private $dummyHead;
     private $size;
 
     public function __construct()
     {
-        $this->head = null;
+        $this->dummyHead = new Node();
         $this->size = 0;
+    }
+
+    public function __toString()
+    {
+        $str = '';
+        $head = $this->dummyHead;
+        while ($head->next != null) {
+            $head = $head->next;
+            $str .= $head;
+        }
+        return $str;
     }
 
     public function getSize()
@@ -40,31 +51,23 @@ class LinkedList
         return $this->size == 0;
     }
 
-    public function addFirst($e)
-    {
-//        $node = new Node($e);
-//        $node->next = $this->head;
-//        $this->head = $node;
-
-        $this->head = new Node($e, $this->head);
-        $this->size++;
-    }
-
     public function add($index, $e)
     {
         if ($index < 0 || $index > $this->size) {
             throw new \Exception('illegal index');
         }
-        if ($index == 0) {
-            $this->addFirst($e);
-        } else {
-            $prev = $this->head;
-            for ($i = 0; $i < $this->size - 1; $i++) {
-                $prev = $prev->next;
-                $prev->next = new Node($e, $prev->next);
-                $this->size++;
-            }
+
+        $prev = $this->dummyHead;
+        for ($i = 0; $i < $index; $i++) {
+            $prev = $prev->next;
+            $prev->next = new Node($e, $prev->next);
+            $this->size++;
         }
+    }
+
+    public function addFirst($e)
+    {
+        $this->add(0, $e);
     }
 
     public function addLast($e)
@@ -72,3 +75,10 @@ class LinkedList
         $this->add($this->size, $e);
     }
 }
+//
+//$linkedList = new LinkedList();
+//$linkedList->addFirst(23);
+//$linkedList->addLast(25);
+//$linkedList->add(1, 24);
+//
+//echo $linkedList;
