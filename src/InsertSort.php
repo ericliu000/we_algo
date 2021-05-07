@@ -1,7 +1,6 @@
 <?php
 
-
-namespace algo\src;
+namespace algo;
 
 
 class InsertSort

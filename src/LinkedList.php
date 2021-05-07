@@ -1,4 +1,5 @@
 <?php
+namespace algo;
 
 class Node
 {
@@ -32,13 +33,13 @@ class LinkedList
 
     public function __toString()
     {
-        $str = '';
+        $arr = [];
         $head = $this->dummyHead;
         while ($head->next != null) {
             $head = $head->next;
-            $str .= $head;
+            $arr[] = (string)$head;
         }
-        return $str;
+        return implode(' ', $arr);
     }
 
     public function getSize()
@@ -54,15 +55,15 @@ class LinkedList
     public function add($index, $e)
     {
         if ($index < 0 || $index > $this->size) {
-            throw new \Exception('illegal index');
+            throw new \Exception('illegal index:' . $index);
         }
 
         $prev = $this->dummyHead;
         for ($i = 0; $i < $index; $i++) {
             $prev = $prev->next;
-            $prev->next = new Node($e, $prev->next);
-            $this->size++;
         }
+        $prev->next = new Node($e, $prev->next);
+        $this->size++;
     }
 
     public function addFirst($e)
@@ -75,10 +76,3 @@ class LinkedList
         $this->add($this->size, $e);
     }
 }
-//
-//$linkedList = new LinkedList();
-//$linkedList->addFirst(23);
-//$linkedList->addLast(25);
-//$linkedList->add(1, 24);
-//
-//echo $linkedList;
