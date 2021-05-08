@@ -1,5 +1,8 @@
 <?php
+
 namespace algo;
+
+use algo\exception\IllegalIndexException;
 
 class Node
 {
@@ -74,5 +77,26 @@ class LinkedList
     public function addLast($e)
     {
         $this->add($this->size, $e);
+    }
+
+    public function get($index)
+    {
+        if ($index < 0 || $index > $this->size) {
+            throw new IllegalIndexException($index);
+        }
+        $cur = $this->dummyHead->next;
+        for ($i = 0; $i < $index; $i++) {
+            $cur = $cur->next;
+        }
+        return $cur;
+    }
+
+    public function getFirst()
+    {
+        return $this->get(0);
+    }
+    public function getLast()
+    {
+        return $this->get($this->size);
     }
 }
