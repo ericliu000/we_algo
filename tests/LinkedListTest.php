@@ -1,7 +1,7 @@
 <?php
 
 use algo\exception\IllegalIndexException;
-use algo\LinkedList;
+use algo\linked_list\LinkedList;
 use PHPUnit\Framework\TestCase;
 
 class LinkedListTest extends TestCase
@@ -76,5 +76,55 @@ class LinkedListTest extends TestCase
     {
         $this->expectExceptionMessage(IllegalIndexException::MESSAGE_PREFIX);
         $linkedList->get(100);
+    }
+
+    /**
+     * @depends testGetInstance
+     * @param LinkedList $linkedList
+     * @throws Exception
+     */
+    public function testRemove(LinkedList $linkedList)
+    {
+        $this->assertEquals('23 25', (string)$linkedList->remove(1));
+    }
+
+    public function testRemoveDepends()
+    {
+        $linkedList = new LinkedList();
+        $linkedList->addFirst(23);
+        $linkedList->addLast(25);
+        $linkedList->add(1, 24);
+        $this->assertEquals('23 24 25', (string)$linkedList);
+        return $linkedList;
+    }
+
+    public function testRemoveDepends2()
+    {
+        $linkedList = new LinkedList();
+        $linkedList->addFirst(23);
+        $linkedList->addLast(25);
+        $linkedList->add(1, 24);
+        $this->assertEquals('23 24 25', (string)$linkedList);
+        return $linkedList;
+    }
+
+    /**
+     * @depends testRemoveDepends
+     * @param LinkedList $linkedList
+     * @throws Exception
+     */
+    public function testRemoveFirst(LinkedList $linkedList)
+    {
+        $this->assertEquals('24 25', (string)$linkedList->removeFirst());
+    }
+
+    /**
+     * @depends testRemoveDepends2
+     * @param LinkedList $linkedList
+     * @throws Exception
+     */
+    public function testRemoveLast(LinkedList $linkedList)
+    {
+        $this->assertEquals('23 24', (string)$linkedList->removeLast());
     }
 }

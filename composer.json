@@ -9,6 +9,7 @@
     "autoload": {
         "psr-4": {
             "algo\\": "src",
+            "algo\\linked_list\\": "src/linked_list",
             "algo\\exception\\": "src/exception"
         }
     }

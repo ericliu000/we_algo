@@ -1,26 +1,8 @@
 <?php
 
-namespace algo;
+namespace algo\linked_list;
 
 use algo\exception\IllegalIndexException;
-
-class Node
-{
-    public $e;
-    public $next;
-
-    public function __construct($e = null, $next = null)
-    {
-        $this->e = $e;
-        $this->next = $next;
-    }
-
-    public function __toString()
-    {
-        return (string)$this->e;
-    }
-}
-
 
 class LinkedList
 {
@@ -58,7 +40,7 @@ class LinkedList
     public function add($index, $e)
     {
         if ($index < 0 || $index > $this->size) {
-            throw new \Exception('illegal index:' . $index);
+            throw new IllegalIndexException($index);
         }
 
         $prev = $this->dummyHead;
@@ -98,5 +80,31 @@ class LinkedList
     public function getLast()
     {
         return $this->get($this->size);
+    }
+
+    public function remove(int $index)
+    {
+        if ($index < 0 || $index > $this->size) {
+            throw new IllegalIndexException($index);
+        }
+        $prev = $this->dummyHead;
+        for ($i = 0; $i < $index; $i++) {
+            $prev = $prev->next;
+        }
+        $delNode = $prev->next;
+        $prev->next = $delNode->next;
+        $delNode->next = null;
+        $this->size--;
+        return $this;
+    }
+
+    public function removeFirst()
+    {
+        return $this->remove(0);
+    }
+
+    public function removeLast()
+    {
+        return $this->remove($this->size-1);
     }
 }
