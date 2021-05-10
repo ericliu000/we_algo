@@ -1,5 +1,9 @@
 package LinkedList
 
+import (
+	"strings"
+)
+
 type LinkedListWithDummy struct {
 	dummyHead *Node
 	size int
@@ -34,6 +38,54 @@ func (this *LinkedListWithDummy) AddFirst(e interface{}) {
 
 func (this *LinkedListWithDummy) AddLast(e interface{}) {
 	this.Add(e,this.size)
+}
+
+func (this *LinkedListWithDummy) Get(index int) interface{} {
+	if index < 0 || index >= this.size {
+		panic("Get failed. Illegal index.")
+	}
+	cur := this.dummyHead.next
+	for i := 0; i < index ; i++ {
+		cur = cur.next
+	}
+	return cur.e
+}
+
+func (this *LinkedListWithDummy) GetLast() interface{} {
+	return this.Get(this.size - 1)
+}
+
+func (this *LinkedListWithDummy) Set(index int, e interface{}) {
+	if index < 0 || index >= this.size {
+		panic("Get failed. Illegal index.")
+	}
+	cur := this.dummyHead.next
+	for i := 0; i < index; i++ {
+		cur = cur.next
+	}
+	cur.e = e
+}
+
+func (this *LinkedListWithDummy) Contains(e interface{}) bool {
+	cur := this.dummyHead.next
+	for cur != nil {
+		if cur.e == e {
+			return true
+		}
+		cur = cur.next
+	}
+	return false
+}
+
+func (this *LinkedListWithDummy) String() string {
+	var res strings.Builder
+	cur := this.dummyHead.next
+	for cur != nil {
+		res.WriteString(cur.e.(string) + "->")
+		cur = cur.next
+	}
+	res.WriteString("NULL")
+	return res.String()
 }
 
 func NewLinkedListWithDummy() *LinkedListWithDummy {
