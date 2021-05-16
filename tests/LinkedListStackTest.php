@@ -1,19 +1,19 @@
 <?php
 
 
-use algo\stack\ArrayStack;
+use algo\stack\LinkedListStack;
 use algo\stack\StackInterface;
 use PHPUnit\Framework\TestCase;
 
-class ArrayStackTest extends TestCase
+class LinkedListStackTest extends TestCase
 {
     /**
-     * @return ArrayStack
+     * @return LinkedListStack
      * @var $stack StackInterface
      */
     public function testPush()
     {
-        $stack = new ArrayStack();
+        $stack = new LinkedListStack();
         $stack->push(123);
         $stack->push(456);
         $this->assertSame('456 123', (string)$stack);

@@ -4,6 +4,8 @@
 namespace algo\stack;
 
 
+use algo\linked_list\Node;
+
 class ArrayStack implements StackInterface
 {
     private $arr = [];
@@ -35,6 +37,6 @@ class ArrayStack implements StackInterface
 
     function __toString(): string
     {
-        return implode(' ', $this->arr);
+        return implode(' ', array_reverse($this->arr));
     }
 }

@@ -27,7 +27,7 @@ class LinkedList
         return implode(' ', $arr);
     }
 
-    public function getSize()
+    public function getSize(): int
     {
         return $this->size;
     }
@@ -49,11 +49,12 @@ class LinkedList
         }
         $prev->next = new Node($e, $prev->next);
         $this->size++;
+        return true;
     }
 
     public function addFirst($e)
     {
-        $this->add(0, $e);
+        return $this->add(0, $e);
     }
 
     public function addLast($e)
