@@ -20,8 +20,11 @@ class LinkedListUtil
         return $list;
     }
 
-    public static function parser(ListNode $listNode)
+    public static function parser($listNode)
     {
+        if ($listNode == null) {
+            return [];
+        }
         $arr = [];
         while ($listNode != null) {
             $arr[] = $listNode->val;
