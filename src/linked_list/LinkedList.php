@@ -4,6 +4,12 @@ namespace algo\linked_list;
 
 use algo\exception\IllegalIndexException;
 
+/**
+ * 链表
+ * 近乎所有的链表相关的算法，都可以使用递归实现
+ * Class LinkedList
+ * @package algo\linked_list
+ */
 class LinkedList
 {
     /** @var Node */
