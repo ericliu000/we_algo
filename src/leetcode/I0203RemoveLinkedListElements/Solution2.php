@@ -18,7 +18,7 @@ use algo\leetcode\common\ListNode;
  *     }
  * }
  */
-class Solution {
+class Solution2 {
 
     /**
      * @param ListNode $head
@@ -27,17 +27,10 @@ class Solution {
      */
     function removeElements($head, $val) {
 
-        // 如果头结点命中
-        while ($head != null && $head->val == $val) {
-            $head = $head->next;
-        }
+        $dummyHead = new ListNode();
+        $dummyHead->next = $head;
 
-        if ($head == null) {
-            return null;
-        }
-
-        // 如果非头结点命中
-        $prev = $head;
+        $prev = $dummyHead;
         while ($prev->next != null) {
             if ($prev->next->val == $val) {
                 $prev->next = $prev->next->next;
@@ -46,6 +39,6 @@ class Solution {
             }
         }
 
-        return $head;
+        return $dummyHead->next;
     }
 }
