@@ -77,6 +77,29 @@ func (this *LinkedListWithDummy) Contains(e interface{}) bool {
 	return false
 }
 
+func (this *LinkedListWithDummy) Remove(index int) interface{} {
+	if index < 0 || index >= this.size {
+		panic("Get failed. Illegal index.")
+	}
+	prev := this.dummyHead
+	for i := 0; i < index; i++ {
+		prev = prev.next
+	}
+	retNode := prev.next
+	prev.next = retNode.next
+	retNode.next = nil
+	this.size--
+	return retNode
+}
+
+func (this *LinkedListWithDummy) RemoveFirst() interface{} {
+	return this.Remove(0)
+}
+
+func (this *LinkedListWithDummy) RemoveLast() interface{} {
+	return this.Remove(this.size - 1)
+}
+
 func (this *LinkedListWithDummy) String() string {
 	var res strings.Builder
 	cur := this.dummyHead.next
