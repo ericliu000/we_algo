@@ -11,6 +11,7 @@ namespace algo\sort;
 算法处理过程中，需要一个大小为 n 的临时存储空间保存合并序列，所以空间复杂度为O(n)。
 3、稳定性：稳定
 在归并排序中，相等的元素的顺序不会改变，所以它是稳定排序。
+ * @link 参考文章 https://www.cnblogs.com/sunshineliulu/p/8573991.html
  */
 class MergeSort
 {
