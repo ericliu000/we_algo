@@ -1,6 +1,6 @@
 <?php
 
-namespace algo;
+namespace algo\sort;
 
 
 class InsertSort
@@ -26,7 +26,3 @@ class InsertSort
 
 
 }
-
-$arr = [6, 4, 2, 3, 1, 5];
-$aaa = InsertSort::sort($arr);
-var_dump($aaa);
