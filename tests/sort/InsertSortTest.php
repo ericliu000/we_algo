@@ -2,18 +2,14 @@
 
 
 use algo\sort\InsertSort;
+use algo\test\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class InsertSortTest extends TestCase
 {
     public function provider()
     {
-        return [
-            [[6, 4, 2, 3, 1, 5],[1,2,3,4,5,6]],
-            [[6,5],[5,6]],
-            [[],[]],
-            [[1],[1]],
-        ];
+        return DataProvider::data();
     }
 
     /**
