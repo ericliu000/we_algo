@@ -11,6 +11,9 @@ class SelectSort
 
     public $sortArr = [2, 4, 7, 1, 8, 3, 9, 2, 5, 7, 1, 8, 6];
 
+    /**
+     * 循环不变量是已经拍好的数
+     */
     public function sort()
     {
         $length = count($this->sortArr);

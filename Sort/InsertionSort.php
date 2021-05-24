@@ -11,6 +11,9 @@ class InsertionSort
 
     public $sortArr = [2, 4, 7, 1, 8, 3, 9, 2, 5, 7, 1, 8, 6];
 
+    /**
+     * 扑克牌
+     */
     public function sort()
     {
         $length = count($this->sortArr);
