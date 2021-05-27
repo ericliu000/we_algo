@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 快速排序
+ * 快速排序 比归并排序要快一点
  *
  * 利用分治和交换思想
  *
@@ -89,19 +89,21 @@ class QuickSort
         }
 
         // 最后交换标记值
+        // 这里是要交换的位置
+        $swapIndex = $min - 1;
         $tmp = $this->arr[$index];
-        $this->arr[$index] = $this->arr[$min];
-        $this->arr[$min] = $tmp;
+        $this->arr[$index] = $this->arr[$swapIndex];
+        $this->arr[$swapIndex] = $tmp;
 
         echo json_encode([$left, $right, $min, $this->arr]) . PHP_EOL;
         sleep(1);
 
-        return $min;
+        return $swapIndex;
     }
 
 
     /**
-     * 递进交换
+     * 双指针 递进交换
      *
      * @param $left
      * @param $right
@@ -117,3 +119,7 @@ class QuickSort
 
 $quickSort = new QuickSort();
 echo json_encode($quickSort->run());
+
+//echo json_encode($quickSort->arr) . PHP_EOL;
+//$quickSort->partition2(0, count($quickSort->arr) - 1);
+//echo json_encode($quickSort->arr) . PHP_EOL;
