@@ -79,9 +79,7 @@ class QuickSort
             } elseif ($this->arr[$max] > $this->arr[$index]) {
                 $max--;
             } else {
-                $tmp = $this->arr[$min];
-                $this->arr[$min] = $this->arr[$max];
-                $this->arr[$max] = $tmp;
+                $this->swap($min,$max);
 
                 $min++;
                 $max--;
@@ -91,9 +89,7 @@ class QuickSort
         // 最后交换标记值
         // 这里是要交换的位置
         $swapIndex = $min - 1;
-        $tmp = $this->arr[$index];
-        $this->arr[$index] = $this->arr[$swapIndex];
-        $this->arr[$swapIndex] = $tmp;
+        $this->swap($swapIndex,$index);
 
         echo json_encode([$left, $right, $min, $this->arr]) . PHP_EOL;
         sleep(1);
@@ -110,9 +106,34 @@ class QuickSort
      */
     public function partition3($left, $right)
     {
-        for ($i = $left + 1; $i < $right; $i++) {
+        $index = $left;
+        $i = $left;
+        for ($j = $left + 1; $j < $right; $j++) {
+            if($this->arr[$j] < $this->arr[$index]){
+                $i++;
+                $this->swap($i,$j);
+            }
 
+            echo json_encode([$left, $right, $i, $this->arr]) . PHP_EOL;
+            sleep(1);
         }
+
+        // 最后交换标兵
+        $this->swap($i,$index);
+        return $i;
+    }
+
+
+    /**
+     * 交换数组两个值
+     *
+     * @param $i
+     * @param $j
+     */
+    public function swap($i,$j){
+        $tmp = $this->arr[$i];
+        $this->arr[$i] = $this->arr[$j];
+        $this->arr[$j] = $tmp;
     }
 }
 
