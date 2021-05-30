@@ -3,16 +3,12 @@
 
 namespace algo\test;
 
-
 use algo\sort\MergeSort;
 use PHPUnit\Framework\TestCase;
 
 class MergeSortTest extends TestCase
 {
-    public function provider()
-    {
-        return DataProvider::data();
-    }
+    use provider;
 
     /**
      * @dataProvider provider

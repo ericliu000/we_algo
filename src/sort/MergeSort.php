@@ -31,7 +31,9 @@ class MergeSort
             //对右边进行递归排序
             self::mergeSort($arr, $mid + 1, $r);
             //合并
-            self::merge($arr, $l, $mid, $r);
+            if ($arr[$mid] > $arr[$mid+1]) {
+                self::merge($arr, $l, $mid, $r);
+            }
         }
     }
 

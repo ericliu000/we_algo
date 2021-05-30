@@ -1,15 +1,13 @@
 <?php
 
+namespace algo\test;
+
 use algo\sort\SelectSort;
-use algo\test\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class SelectSortTest extends TestCase
 {
-    public function provider()
-    {
-        return DataProvider::data();
-    }
+    use provider;
 
     /**
      * @dataProvider provider
