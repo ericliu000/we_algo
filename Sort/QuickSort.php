@@ -15,7 +15,7 @@
  */
 class QuickSort
 {
-    public $arr = [3, 2, 7, 6, 1, 8, 6, 9];
+    public $arr = [3, 2, 7, 6, 1, 8, 6, 9, 3, 3, 3, 3];
 
     public function run()
     {
@@ -34,9 +34,14 @@ class QuickSort
         if ($left >= $right) return;
 
         $middleIndex = $this->partition($left, $right);
-
-        $this->sort($left, $middleIndex);
-        $this->sort($middleIndex + 1, $right);
+        if(is_array($middleIndex)){
+            // 三路快速排序
+            $this->sort($left, $middleIndex['lt']);
+            $this->sort($middleIndex['gt'],$right);
+        }else{
+            $this->sort($left, $middleIndex);
+            $this->sort($middleIndex + 1, $right);
+        }
     }
 
     /**
@@ -52,10 +57,13 @@ class QuickSort
         // 方法一: 辅助数组,需要额外空间 比较简单不举实例
 
         // 方法二: 交换 也有两种 两头指针交换, 再一种是递进交换
-        return $this->partition2($left, $right);
+        //return $this->partition2($left, $right);
 
-        // 第二种交换,递进交换就是课程里讲的
+        // 第二种交换,递进交换就是课程里讲的,双路快速排序
         //return $this->partition3($left,$right);
+
+        // 第三种,三路快速排序,优化数组都是相同值得情况
+        return $this->partition3($left,$right);
     }
 
 
@@ -99,28 +107,39 @@ class QuickSort
 
 
     /**
-     * 双指针 递进交换
+     * 三路快速排序
      *
      * @param $left
      * @param $right
+     * @return array
      */
     public function partition3($left, $right)
     {
-        $index = $left;
-        $i = $left;
-        for ($j = $left + 1; $j < $right; $j++) {
-            if($this->arr[$j] < $this->arr[$index]){
+        $lt = $left;
+        $gt = $right + 1;
+        $i = $left + 1;
+        while($i < $gt){
+            if($this->arr[$i] < $this->arr[$left]){
+                $lt++;
+                $this->swap($i,$lt);
                 $i++;
-                $this->swap($i,$j);
+            }elseif($this->arr[$i] > $this->arr[$left]){
+                $gt--;
+                $this->swap($i,$gt);
+            }else{
+                $i++;
             }
 
-            echo json_encode([$left, $right, $i, $this->arr]) . PHP_EOL;
+            echo json_encode([$lt, $gt, $i, $this->arr]) . PHP_EOL;
             sleep(1);
         }
 
         // 最后交换标兵
-        $this->swap($i,$index);
-        return $i;
+        $this->swap($left,$lt);
+        return array(
+            'lt' => $lt,
+            'gt' => $gt
+        );
     }
 
 
