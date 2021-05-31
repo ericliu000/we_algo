@@ -2,15 +2,17 @@
 
 namespace algo\sort;
 
+use algo\test\InsertSortTest;
+
 /**
  * Class MergeSort
  * @package algo\sort
-1、时间复杂度：O(nlogn)
-最好情况、最坏情况和平均时间复杂度均为O(nlogn);
-2、空间复杂度：O(n)
-算法处理过程中，需要一个大小为 n 的临时存储空间保存合并序列，所以空间复杂度为O(n)。
-3、稳定性：稳定
-在归并排序中，相等的元素的顺序不会改变，所以它是稳定排序。
+* 1、时间复杂度：O(nlogn)
+* 最好情况、最坏情况和平均时间复杂度均为O(nlogn);
+* 2、空间复杂度：O(n)
+* 算法处理过程中，需要一个大小为 n 的临时存储空间保存合并序列，所以空间复杂度为O(n)。
+* 3、稳定性：稳定
+* 在归并排序中，相等的元素的顺序不会改变，所以它是稳定排序。
  * @link 参考文章 https://www.cnblogs.com/sunshineliulu/p/8573991.html
  */
 class MergeSort
@@ -23,6 +25,10 @@ class MergeSort
 
     private static function mergeSort(&$arr, $l, $r)
     {
+//        if ($r - $l >= 15) {
+//            $arr = InsertSort::sortByRange($arr, $l, $r);
+//            return;
+//        }
         if ($r > $l) {
             //找到中间索引
             $mid = floor(($l + $r) / 2);
