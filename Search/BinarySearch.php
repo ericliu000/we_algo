@@ -16,7 +16,10 @@ class BinarySearch
 
 
     public function run(){
+        /*递归实现*/
         return $this->search(0,count($this->arr)-1);
+
+        /*非递归实现*/
     }
 
 
@@ -31,15 +34,16 @@ class BinarySearch
         if($left > $right) return -1;
 
         $mid = floor(($right + $left) / 2);
+        echo json_encode([$left,$right,$mid]) . PHP_EOL;
+        sleep(1);
+
         if($this->arr[$mid] > $this->target){
-            $this->search($left,$mid-1);
+            return $this->search($left,$mid-1);
         }elseif($this->arr[$mid] < $this->target){
-            $this->search($mid + 1,$right);
+            return $this->search($mid + 1,$right);
         }else{
             return $mid;
         }
-
-        echo json_encode([$left,$right,$mid]) . PHP_EOL;
     }
 }
 
