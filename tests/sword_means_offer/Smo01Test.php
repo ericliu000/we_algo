@@ -1,5 +1,7 @@
 <?php
 
+namespace algo;
+
 use algo\sword_means_offer\Smo01;
 use PHPUnit\Framework\TestCase;
 
