@@ -11,18 +11,17 @@ class Smo01
         if (!is_array($a)) {
             return false;
         }
-        for ($i = 0; $i < count($a); ) {
-            if ($a[$i] != $i) {
-                $n = $a[$a[$i]];
-                if ($n == $a[$i]) {
-                    return $n;
-                } else {
-                    $a[$a[$i]] = $a[$i];
-                    $a[$i] = $n;
-                }
-            } else {
+        for ($i = 0; $i < count($a);) {
+            if ($a[$i] == $i) {
                 $i++;
+                continue;
             }
+            $n = $a[$a[$i]];
+            if ($n == $a[$i]) {
+                return $n;
+            }
+            $a[$a[$i]] = $a[$i];
+            $a[$i] = $n;
         }
         return false;
     }
