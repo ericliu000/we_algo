@@ -11,6 +11,11 @@ class Smo01
         if (!is_array($a)) {
             return false;
         }
+        foreach ($a as $value) {
+            if ($value < 0 || $value >= count($a)) {
+                return false;
+            }
+        }
         for ($i = 0; $i < count($a);) {
             if ($a[$i] == $i) {
                 $i++;
