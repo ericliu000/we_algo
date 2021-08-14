@@ -1,7 +1,7 @@
 <?php
 
 
-namespace algo;
+namespace sword_means_offer;
 
 
 use algo\sword_means_offer\Smo03;

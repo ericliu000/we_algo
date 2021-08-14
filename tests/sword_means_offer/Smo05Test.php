@@ -1,10 +1,8 @@
 <?php
 
 
-namespace algo;
+namespace sword_means_offer;
 
-
-use algo\sword_means_offer\Smo03;
 use algo\sword_means_offer\Smo05;
 use PHPUnit\Framework\TestCase;
 
@@ -15,7 +13,7 @@ class Smo05Test extends TestCase
         return [
             ['we are happy.', str_replace(' ', '%20', 'we are happy.')],
             ['', ''],
-            [[1,2,3], '']
+            [[1, 2, 3], '']
         ];
     }
 

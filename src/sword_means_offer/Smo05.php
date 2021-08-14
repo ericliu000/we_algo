@@ -4,6 +4,8 @@
 namespace algo\sword_means_offer;
 
 
+use algo\ArrayHelper;
+
 class Smo05
 {
     public function solve($str): string
@@ -26,7 +28,7 @@ class Smo05
 
         $preI = $len - 1;
         $newI = $len + 2 * $countBlank - 1;
-        $strArr = $this->makeArray($len + 2 * $countBlank);
+        $strArr = ArrayHelper::makeArray($len + 2 * $countBlank);
         while ($preI >= 0) {
             if ($str[$preI] == ' ') {
                 $strArr[$newI--] = '0';
@@ -38,14 +40,5 @@ class Smo05
             $preI--;
         }
         return implode('', $strArr);
-    }
-
-    private function makeArray(int $len)
-    {
-        $arr = [];
-        for ($i = 0; $i < $len; $i++) {
-            $arr[$i] = null;
-        }
-        return $arr;
     }
 }
