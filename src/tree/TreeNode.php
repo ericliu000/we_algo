@@ -5,8 +5,9 @@ namespace algo\tree;
 class TreeNode
 {
     public int $value;
-    public TreeNode|null $left;
-    public TreeNode|null $right;
+    public ?TreeNode $left;
+    public ?TreeNode $right;
+    public ?TreeNode $parent;
 
     public function __construct(int $value, TreeNode $left = null, TreeNode $right = null)
     {

@@ -1,10 +1,6 @@
 <?php
 
-
 namespace algo\stack;
-
-
-use algo\linked_list\Node;
 
 class ArrayStack implements StackInterface
 {

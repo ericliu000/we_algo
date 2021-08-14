@@ -1,8 +1,6 @@
 <?php
+namespace algo\stack;
 
-
-use algo\stack\ArrayStack;
-use algo\stack\StackInterface;
 use PHPUnit\Framework\TestCase;
 
 class ArrayStackTest extends TestCase
