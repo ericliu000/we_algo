@@ -1,10 +1,9 @@
 <?php
-
 use algo\exception\IllegalIndexException;
-use algo\linked_list\LinkedList;
+use algo\linked_list\LinkedListDummy;
 use PHPUnit\Framework\TestCase;
 
-class LinkedListTest extends TestCase
+class LinkedListDummyTest extends TestCase
 {
     public function addProvider()
     {
@@ -25,7 +24,7 @@ class LinkedListTest extends TestCase
      */
     public function testAdd($expected, $first, $last, $index, $value)
     {
-        $linkedList = new LinkedList();
+        $linkedList = new LinkedListDummy();
         $linkedList->addFirst($first);
         $linkedList->addLast($last);
         $linkedList->add($index, $value);
@@ -34,7 +33,7 @@ class LinkedListTest extends TestCase
 
     public function testGetInstance()
     {
-        $linkedList = new LinkedList();
+        $linkedList = new LinkedListDummy();
         $linkedList->addFirst(23);
         $linkedList->addLast(25);
         $linkedList->add(1, 24);
@@ -44,10 +43,10 @@ class LinkedListTest extends TestCase
 
     /**
      * @depends testGetInstance
-     * @param LinkedList $linkedList
+     * @param LinkedListDummy $linkedList
      * @throws Exception
      */
-    public function testAddException(LinkedList $linkedList)
+    public function testAddException(LinkedListDummy $linkedList)
     {
         $this->expectExceptionMessage(IllegalIndexException::MESSAGE_PREFIX);
         $linkedList->add(100, 23333);
@@ -55,10 +54,10 @@ class LinkedListTest extends TestCase
 
     /**
      * @depends testGetInstance
-     * @param LinkedList $linkedList
+     * @param LinkedListDummy $linkedList
      * @throws IllegalIndexException
      */
-    public function testGet(LinkedList $linkedList)
+    public function testGet(LinkedListDummy $linkedList)
     {
         $this->assertEquals(24, (string)$linkedList->get(1));
         $this->assertEquals(23, (string)$linkedList->get(0));
@@ -69,10 +68,10 @@ class LinkedListTest extends TestCase
 
     /**
      * @depends testGetInstance
-     * @param LinkedList $linkedList
+     * @param LinkedListDummy $linkedList
      * @throws IllegalIndexException
      */
-    public function testGetException(LinkedList $linkedList)
+    public function testGetException(LinkedListDummy $linkedList)
     {
         $this->expectExceptionMessage(IllegalIndexException::MESSAGE_PREFIX);
         $linkedList->get(100);
@@ -80,17 +79,17 @@ class LinkedListTest extends TestCase
 
     /**
      * @depends testGetInstance
-     * @param LinkedList $linkedList
+     * @param LinkedListDummy $linkedList
      * @throws Exception
      */
-    public function testRemove(LinkedList $linkedList)
+    public function testRemove(LinkedListDummy $linkedList)
     {
         $this->assertEquals('23 25', (string)$linkedList->remove(1));
     }
 
     public function testRemoveDepends()
     {
-        $linkedList = new LinkedList();
+        $linkedList = new LinkedListDummy();
         $linkedList->addFirst(23);
         $linkedList->addLast(25);
         $linkedList->add(1, 24);
@@ -100,7 +99,7 @@ class LinkedListTest extends TestCase
 
     public function testRemoveDepends2()
     {
-        $linkedList = new LinkedList();
+        $linkedList = new LinkedListDummy();
         $linkedList->addFirst(23);
         $linkedList->addLast(25);
         $linkedList->add(1, 24);
@@ -110,20 +109,20 @@ class LinkedListTest extends TestCase
 
     /**
      * @depends testRemoveDepends
-     * @param LinkedList $linkedList
+     * @param LinkedListDummy $linkedList
      * @throws Exception
      */
-    public function testRemoveFirst(LinkedList $linkedList)
+    public function testRemoveFirst(LinkedListDummy $linkedList)
     {
         $this->assertEquals('24 25', (string)$linkedList->removeFirst());
     }
 
     /**
      * @depends testRemoveDepends2
-     * @param LinkedList $linkedList
+     * @param LinkedListDummy $linkedList
      * @throws Exception
      */
-    public function testRemoveLast(LinkedList $linkedList)
+    public function testRemoveLast(LinkedListDummy $linkedList)
     {
         $this->assertEquals('23 24', (string)$linkedList->removeLast());
     }
