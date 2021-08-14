@@ -3,20 +3,17 @@
 
 namespace algo\stack;
 
-
-use algo\linked_list\Node;
-
 interface StackInterface
 {
     function getSize(): int;
 
     function push($e): bool;
 
-    function pop() ;
+    function pop();
 
-    function peek() ;
+    function peek();//查看栈顶元素
 
     function isEmpty(): bool;
 
-    function __toString(): string ;
+    function __toString(): string;
 }
