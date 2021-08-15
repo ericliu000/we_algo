@@ -1,9 +1,8 @@
 <?php
 
 
-namespace sword_means_offer;
+namespace algo\sword_means_offer\smo05;
 
-use algo\sword_means_offer\Smo05;
 use PHPUnit\Framework\TestCase;
 
 class Smo05Test extends TestCase
@@ -20,6 +19,7 @@ class Smo05Test extends TestCase
     /**
      * @dataProvider provider
      * @param $str
+     * @param $exp
      */
     public function testSolve($str, $exp)
     {

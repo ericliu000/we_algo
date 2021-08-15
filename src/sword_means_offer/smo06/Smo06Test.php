@@ -1,10 +1,8 @@
 <?php
 
-
-namespace sword_means_offer;
+namespace algo\sword_means_offer\smo06;
 
 use algo\linked_list\Node;
-use algo\sword_means_offer\Smo06;
 use PHPUnit\Framework\TestCase;
 
 class Smo06Test extends TestCase

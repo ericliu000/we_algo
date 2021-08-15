@@ -1,7 +1,7 @@
 <?php
 
 
-namespace algo\sword_means_offer;
+namespace algo\sword_means_offer\smo06;
 
 
 use algo\linked_list\Node;

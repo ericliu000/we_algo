@@ -1,13 +1,29 @@
 <?php
 
 
-namespace algo\sword_means_offer;
+namespace algo\sword_means_offer\smo05;
 
 
 use algo\ArrayHelper;
 
 class Smo05
 {
+//    public function solve($s)
+//    {
+//        if (!is_string($s)) {
+//            return '';
+//        }
+//        $resStr = '';
+//        for ($i = strlen($s) - 1; $i >= 0; $i--) {
+//            if ($s[$i] === ' ') {
+//                $resStr = '%20' . $resStr;
+//            } else {
+//                $resStr = $s[$i] . $resStr;
+//            }
+//        }
+//        return $resStr;
+//    }
+
     public function solve($str): string
     {
         if (!is_string($str)) {
