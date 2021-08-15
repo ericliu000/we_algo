@@ -4,7 +4,7 @@ namespace algo\sword_means_offer\smo25;
 
 /**
  * @link https://leetcode-cn.com/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/
- * 
+ *
  * Definition for a singly-linked list.
  * class ListNode {
  *     public $val = 0;
