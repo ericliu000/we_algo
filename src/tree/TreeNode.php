@@ -16,7 +16,7 @@ class TreeNode
         $this->right = $right;
     }
 
-    public function preOrderTraverse(TreeNode|null $node, &$str)
+    public function preOrderTraverse(?TreeNode $node, &$str)
     {
         if ($node === null) {
             return;
