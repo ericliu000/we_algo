@@ -1,11 +1,8 @@
 <?php
 
+namespace algo\sword_means_offer\smo04;
 
-namespace sword_means_offer;
 
-
-use algo\sword_means_offer\Smo03;
-use algo\sword_means_offer\smo04\Solution;
 use PHPUnit\Framework\TestCase;
 
 class SolutionTest extends TestCase
@@ -56,8 +53,6 @@ class SolutionTest extends TestCase
     /**
      * @dataProvider provider
      * @param $matrix
-     * @param $row
-     * @param $column
      * @param $target
      * @param $exp
      */

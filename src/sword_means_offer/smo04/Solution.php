@@ -2,7 +2,8 @@
 
 namespace algo\sword_means_offer\smo04;
 
-class Solution {
+class Solution
+{
 
     /**
      * @link https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/submissions/
@@ -15,11 +16,17 @@ class Solution {
         if (!is_array($matrix) || count($matrix) === 0 || count($matrix[0]) === 0) {
             return false;
         }
+
+        $colsLen = count($matrix[0]);
+        for ($i = 1; $i < count($matrix); $i++) {
+            if (count($matrix[$i]) !== $colsLen) return false;
+        }
+
         $i = 0;
-        $j = count($matrix[0]) -1;//下标是从len-1开始的
+        $j = count($matrix[0]) - 1;//下标是从len-1开始的
 
         //循环出口：任意一个扫描指针到界外时
-        while($i < count($matrix) && $j >= 0) {
+        while ($i < count($matrix) && $j >= 0) {
             if ($target === $matrix[$i][$j]) {
                 return true;
             } elseif ($target > $matrix[$i][$j]) {
