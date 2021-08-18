@@ -1,11 +1,9 @@
 <?php
 
 
-namespace sword_means_offer;
+namespace algo\sword_means_offer\smo07;
 
 use algo\exception\IllegalInputException;
-use algo\linked_list\Node;
-use algo\sword_means_offer\smo07;
 use algo\tree\TreeNode;
 use PHPUnit\Framework\TestCase;
 
@@ -25,15 +23,14 @@ class Smo07Test extends TestCase
      * @dataProvider provider
      * @param $preOrder
      * @param $inOrder
-     * @param $exp TreeNode|null
+     * @param $exp ?TreeNode
      * @throws IllegalInputException
      */
     public function testSolve($preOrder, $inOrder, $exp)
     {
         $sol = new Smo07();
         $exp->preOrderTraverse($exp, $str);
-        $res = $sol->solve($preOrder, $inOrder);
-        $exp->preOrderTraverse($res, $str2);
+        $exp->preOrderTraverse($sol->solve($preOrder, $inOrder), $str2);
         $this->assertEquals($str, $str2);
     }
 }

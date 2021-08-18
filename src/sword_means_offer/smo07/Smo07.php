@@ -1,7 +1,7 @@
 <?php
 
 
-namespace algo\sword_means_offer;
+namespace algo\sword_means_offer\smo07;
 
 use algo\exception\IllegalInputException;
 use algo\tree\TreeNode;
