@@ -4,7 +4,7 @@
 namespace sword_means_offer;
 
 
-use algo\sword_means_offer\Smo02;
+use algo\sword_means_offer\smo02;
 use PHPUnit\Framework\TestCase;
 
 class Smo02Test extends TestCase

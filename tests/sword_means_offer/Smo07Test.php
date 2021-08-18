@@ -5,7 +5,7 @@ namespace sword_means_offer;
 
 use algo\exception\IllegalInputException;
 use algo\linked_list\Node;
-use algo\sword_means_offer\Smo07;
+use algo\sword_means_offer\smo07;
 use algo\tree\TreeNode;
 use PHPUnit\Framework\TestCase;
 
