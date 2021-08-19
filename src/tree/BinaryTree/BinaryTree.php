@@ -103,4 +103,37 @@ class BinaryTree
         }
         return $res;
     }
+
+
+    private int $maxDepth = 0;
+
+    /**
+     * “自顶向下” 的解决方案
+     * @param TreeNode|null $root
+     * @return int
+     */
+    function maxDepth(?TreeNode $root): int
+    {
+        if ($root === null) return 0;
+        $this->maxDepthHelper($root, 1);
+        return $this->maxDepth;
+    }
+    private function maxDepthHelper(?TreeNode $root, int $depth): void
+    {
+        if ($root === null) {
+            return;
+        }
+        if ($root->left === null && $root->right === null) {
+            $this->maxDepth = max($this->maxDepth, $depth);
+        }
+        $this->maxDepthHelper($root->left, $depth + 1);
+        $this->maxDepthHelper($root->right, $depth + 1);
+    }
+
+    function maxDepth2(?TreeNode $root) {
+        if ($root === null) return 0;
+        $leftDepth = $this->maxDepth2($root->left);
+        $rightDepth = $this->maxDepth2($root->right);
+        return max($leftDepth, $rightDepth) + 1;
+    }
 }

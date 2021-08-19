@@ -33,6 +33,14 @@ class BinaryTreeTest extends TestCase
         ];
     }
 
+    public function provider2(): array
+    {
+        return [
+            [$this->makeTree(), 4],
+            [null, 0],
+        ];
+    }
+
     /**
      * @dataProvider provider
      * @param TreeNode|null $treeNode
@@ -52,4 +60,28 @@ class BinaryTreeTest extends TestCase
     {
         $this->assertEquals($exp, (new BinaryTree())->levelOrder($treeNode));
     }
+
+    /**
+     * @dataProvider provider2
+     * @param TreeNode|null $treeNode
+     * @param $exp
+     */
+    public function testMaxDepth(?TreeNode $treeNode, $exp)
+    {
+        $this->assertEquals($exp, (new BinaryTree())->maxDepth($treeNode));
+    }
+
+    /**
+     * @dataProvider provider2
+     * @param TreeNode|null $treeNode
+     * @param $exp
+     */
+    public function testMaxDepth2(?TreeNode $treeNode, $exp)
+    {
+        $this->assertEquals($exp, (new BinaryTree())->maxDepth2($treeNode));
+    }
+
+
+
+
 }
