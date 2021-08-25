@@ -30,14 +30,14 @@ class ArrayDequeue implements DequeueInterface
         $this->content[] = $e;
     }
 
-    function removeFirst()
+    function popFirst()
     {
-        array_shift($this->content);
+        return array_shift($this->content);
     }
 
-    function removeLast()
+    function popLast()
     {
-        array_pop($this->content);
+        return array_pop($this->content);
     }
 
     function peekFirst()

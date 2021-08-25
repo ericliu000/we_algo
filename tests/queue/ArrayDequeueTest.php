@@ -19,11 +19,8 @@ class ArrayDequeueTest extends TestCase
         $deque->addFirst(1);
         $this->assertEquals([1, 2], $deque->getContent());
 
-        $deque->removeFirst();
-        $this->assertEquals([2], $deque->getContent());
-
-        $deque->removeLast();
-        $this->assertEquals([], $deque->getContent());
+        $this->assertEquals(1, $deque->popFirst());
+        $this->assertEquals(2, $deque->popLast());
 
         $deque->addFirst(100);
         $deque->addFirst(99);

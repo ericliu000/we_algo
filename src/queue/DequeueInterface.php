@@ -12,9 +12,9 @@ interface DequeueInterface
 
     function addLast($e): void;
 
-    function removeFirst();
+    function popFirst();
 
-    function removeLast();
+    function popLast();
 
     function peekFirst();
 
