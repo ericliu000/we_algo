@@ -1,18 +1,19 @@
 {
-    "name": "shawn/algo",
-    "description": "php学算法",
-    "type": "library",
-    "minimum-stability": "beta",
-    "require": {
-        "php": ">=8.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^9.5"
-    },
-    "autoload": {
-        "psr-4": {
-            "algo\\": "src",
-            "algo\\test\\": "tests/sort"
-        }
+  "name": "shawn/algo",
+  "description": "php学算法",
+  "type": "library",
+  "minimum-stability": "beta",
+  "require": {
+    "php": ">=8.0",
+    "ext-mbstring": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "algo\\": "src",
+      "algo\\test\\": "tests/sort"
     }
+  }
 }
