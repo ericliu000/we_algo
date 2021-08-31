@@ -17,6 +17,7 @@ class Solution2
 {
 
     /**
+     * 解法2
      * @param TreeNode $root
      * @return Boolean
      */
@@ -36,5 +37,24 @@ class Solution2
         if ($rightDep === -1) return -1;
         unset($root);
         return (abs($leftDep - $rightDep) <= 1) ? max($leftDep, $rightDep)+1 : -1;
+    }
+
+    /**
+     * 解法1：
+     */
+    /**
+     * @param TreeNode $root
+     * @return Boolean
+     */
+    function isBalanced1($root) {
+        if ($root === null) return true;
+        return (abs($this->maxDepth($root->left) - $this->maxDepth($root->right)) <= 1)
+            && $this->isBalanced($root->left)
+            && $this->isBalanced($root->right);
+
+    }
+    function maxDepth($root) {
+        if ($root === null) return 0;
+        return max($this->maxDepth($root->left), $this->maxDepth($root->right)) + 1;
     }
 }
