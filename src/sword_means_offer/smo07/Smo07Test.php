@@ -33,4 +33,18 @@ class Smo07Test extends TestCase
         $exp->preOrderTraverse($sol->solve($preOrder, $inOrder), $str2);
         $this->assertEquals($str, $str2);
     }
+
+    /**
+     * @dataProvider provider
+     * @param $preOrder
+     * @param $inOrder
+     * @param $exp ?TreeNode
+     */
+    public function testSolve2($preOrder, $inOrder, $exp)
+    {
+        $sol = new Smo07();
+        $exp->preOrderTraverse($exp, $str);
+        $exp->preOrderTraverse($sol->buildTree($preOrder, $inOrder), $str2);
+        $this->assertEquals($str, $str2);
+    }
 }

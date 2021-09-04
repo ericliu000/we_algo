@@ -66,4 +66,13 @@ class Smo07
         }
         return $count;
     }
+
+    function buildTree($preorder, $inorder) {
+        if (count($preorder) === 0) return null;
+        $offset = array_search($preorder[0], $inorder);
+        $node = new TreeNode($preorder[0]);
+        $node->left = $this->buildTree(array_slice($preorder, 1, $offset), array_slice($inorder, 0, $offset));
+        $node->right = $this->buildTree(array_slice($preorder, 1 + $offset), array_slice($inorder, 1 + $offset));
+        return $node;
+    }
 }
