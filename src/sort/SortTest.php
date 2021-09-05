@@ -18,11 +18,10 @@ class SortTest extends TestCase
      * @param $a
      * @param $exp
      */
-    public function testSort($a, $exp)
+    public function testQuickSort($a, $exp)
     {
-        QuickSort::sort($a);
-        var_dump($a);
-        $this->assertEquals($exp, $a);
+        $this->assertEquals($exp, QuickSort::sort($a));
+//        $this->assertEquals($exp, QuickSort::sortSS($a));
     }
 
     /**
