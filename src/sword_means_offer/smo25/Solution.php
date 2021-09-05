@@ -2,7 +2,10 @@
 
 namespace algo\sword_means_offer\smo25;
 
+use algo\leetcode\common\ListNode;
+
 /**
+ * 剑指 Offer 25. 合并两个排序的链表
  * @link https://leetcode-cn.com/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/
  *
  * Definition for a singly-linked list.
@@ -34,15 +37,11 @@ class Solution {
             }
             $tail = $tail->next;
         }
-        while ($l1 != null) {
+        if ($l1 != null) {
             $tail->next = $l1;
-            $l1 = $l1->next;
-            $tail = $tail->next;
         }
-        while ($l2 != null) {
+        if ($l2 != null) {
             $tail->next = $l2;
-            $l2 = $l2->next;
-            $tail = $tail->next;
         }
         return $dummy->next;
     }
