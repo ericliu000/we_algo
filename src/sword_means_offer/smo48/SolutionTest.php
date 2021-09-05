@@ -22,7 +22,6 @@ class SolutionTest extends TestCase
      * @param $a
      * @param $b
      */
-
     public function testLengthOfLongestSubstring($a, $exp)
     {
         $sol = new Solution();
